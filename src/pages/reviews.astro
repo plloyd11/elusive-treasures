@@ -1,0 +1,21 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+
+const allReviews = await getCollection('reviews');
+console.log(allReviews);
+---
+
+<Layout title="Reviews | Elusive Treasures">
+    <main class="max-w-prose mx-auto px-4">
+        <h1 class="text-6xl text-white text-center">Retro Reviews</h1>
+        {
+            allReviews.map((review) => (
+                <>
+                    <h2 class="text-white">{review.data.title}</h2>
+                    <span class="text-white">{review.data.author}</span>
+                </>
+            ))
+        }
+    </main>
+</Layout>
