@@ -1,8 +1,6 @@
 ---
-// Import your layout and any other necessary components
 import Layout from '../layouts/Layout.astro';
 
-// Environment variables and other imports
 const secretKey = import.meta.env.SECRET_AIRTABLE_API;
 
 async function fetchData() {
@@ -74,6 +72,7 @@ console.log(albums);
                         <tbody class="divide-y divide-white/20">
                             {
                                 albums &&
+                                    // @ts-ignore
                                     albums.map((album) => (
                                         <tr>
                                             <td class="py-4 pl-4 pr-3 text-sm font-medium text-elusiveSecondary whitespace-nowrap sm:pl-0">
